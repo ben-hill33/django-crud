@@ -5,13 +5,13 @@
 Add full CRUD functionality to your bag of tricks by building a Django project that allows Creating, Reading, Updating and Deleting.
 
 ## Feature Tasks and Requirements
-- Create snacks_crud_project Django project
-- Create snacks app
-- Create Snack model
-  - title field
-  - purchaser field
-  - description field
-  - Register model with admin
+- [x] Create snacks_crud_project Django project
+- [x] Create snacks app
+- [x] Create Snack model
+  - [x] title field
+  - [x] purchaser field
+  - [x] description field
+  - [x] Register model with admin
 - Create SnackListView that extends appropriate generic view
   - associated url path is an empty string
 - Create SnackDetailView that extends appropriate generic view
