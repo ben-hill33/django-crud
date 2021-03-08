@@ -5,14 +5,14 @@ from django.urls import reverse
 
 class Snack(models.Model):
     name = models.CharField(max_length=64)
-    description = models.TextField(default="")
+    description = models.TextField()
     purchaser = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("snack_detail", args=[str(self.id)])
+        return reverse("detail", args=[str(self.id)])
 
 
 # class DetailModel(models.Model):

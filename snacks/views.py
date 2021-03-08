@@ -1,29 +1,39 @@
 from django.shortcuts import render
+from django.urls.base import reverse_lazy
 from .models import Snack
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
 
-class SnackListView(TemplateView):
-    template_name = "snack-list.html"
+class SnackListView(ListView):
+    template_name = "list.html"
     model = Snack
 
 
-class SnackDetailView(TemplateView):
-    template_name = "snack-detail.html"
+class SnackDetailView(DetailView):
+    template_name = "detail.html"
     model = Snack
 
 
-class SnackCreateView(TemplateView):
-    template_name = "snack-create.html"
+class SnackCreateView(CreateView):
+    template_name = "new.html"
     model = Snack
+    fields = ["name", "description", "purchaser"]
 
 
-class SnackUpdateView(TemplateView):
-    template_name = "snack-update.html"
+class SnackUpdateView(UpdateView):
+    template_name = "update.html"
     model = Snack
+    fields = ["name", "description"]
 
 
-class SnackDeleteView(TemplateView):
-    template_name = "snack-delete.html"
+class SnackDeleteView(DeleteView):
+    template_name = "delete.html"
     model = Snack
+    success = reverse_lazy("list")
